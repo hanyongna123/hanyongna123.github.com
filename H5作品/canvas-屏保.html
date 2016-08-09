@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	html,body{ height:100%; width:100%; overflow:hidden;}
+	canvas{ background:#000;}
+</style>
+<script>
+
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);	
+	}
+
+	window.onload=function(){
+		var oC=document.querySelector('#oc');
+		
+		oC.width=document.documentElement.clientWidth;
+		oC.height=document.documentElement.clientHeight;
+		
+		var gd=oC.getContext('2d');
+		
+		var n=5;
+		
+		var aPoint=[];
+		//aPoint=[{x:100,y:100,iSpeedX:5,iSpeedY:-5}];
+		
+		
+		var Len=50;
+		
+		var oldPoint=[];	//[[{x:100,y:100,},{x:100,y:100},{x:100,y:100}],[],[]];
+		
+		var oPw=1;
+		var oPh=1;
+		
+		gd.fillStyle='#FFF';
+		for(var i=0; i<n;i++){
+			var x=rnd(0,oC.width-oPw);
+			var y=rnd(0,oC.height-oPh);
+			gd.fillRect(x,y,oPw,oPh);
+			aPoint[i]={x:x+oPw/2,y:y+oPh/2,iSpeedX:rnd(-5,5),iSpeedY:rnd(-5,5)};
+		}
+		
+		setInterval(function(){
+			gd.clearRect(0,0,oC.width,oC.height);
+			
+			for(var i=0; i<aPoint.length;i++){
+				
+				if(aPoint[i].x<=0){
+					aPoint[i].iSpeedX*=-1;
+				}
+				if(aPoint[i].x>=oC.width-oPw){
+					aPoint[i].iSpeedX*=-1;
+				}
+				if(aPoint[i].y<=0){
+					aPoint[i].iSpeedY*=-1;
+				}
+				if(aPoint[i].y>=oC.height-oPh){
+					aPoint[i].iSpeedY*=-1;
+				}
+					
+				aPoint[i].x+=aPoint[i].iSpeedX;
+				aPoint[i].y+=aPoint[i].iSpeedY;
+				gd.fillRect(aPoint[i].x,aPoint[i].y,oPw,oPh);
+			}
+			
+			//画线
+			gd.beginPath();
+			gd.strokeStyle='#FFF';
+			gd.moveTo(aPoint[0].x,aPoint[0].y);
+			
+			var arr=[];
+			arr[0]={x:aPoint[0].x,y:aPoint[0].y};
+			for(var i=1;i<aPoint.length;i++){
+				gd.lineTo(aPoint[i].x,aPoint[i].y);
+				
+				arr[i]={x:aPoint[i].x,y:aPoint[i].y};
+			}
+			
+			oldPoint.push(arr);
+			
+			if(oldPoint.length>Len){
+				oldPoint.shift();
+			}
+			
+			
+			console.log(oldPoint);
+			
+			gd.closePath();
+			gd.stroke();
+			
+			//画尾巴
+			for(var i=0; i<oldPoint.length;i++){
+				//oldPoint[i]=[{x:100,y:100,},{x:100,y:100},{x:100,y:100}]
+				var opa=i/oldPoint.length;
+				
+				gd.beginPath();
+				gd.strokeStyle='rgba(255,255,255,'+opa+')';
+				gd.moveTo(oldPoint[i][0].x,oldPoint[i][0].y);
+				for(var j=1;j<oldPoint[i].length;j++){
+					
+					gd.lineTo(oldPoint[i][j].x,oldPoint[i][j].y);
+				}
+				gd.closePath();
+				gd.stroke();			
+			}
+		},16);
+	};
+</script>
+</head>
+
+<body>
+	<canvas id="oc">
+			版本看不了，请升级您的浏览器！
+	</canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

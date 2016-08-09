@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	html,body{ height:100%; width:100%; overflow:hidden; background:#000;}
+	canvas{ background:#fff;}
+</style>
+<script>
+
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);	
+	}
+
+
+	function d2a(n){
+		return n*Math.PI/180;	
+	}
+	
+	window.onload=function(){
+		var oC=document.querySelector('#oc');
+		
+		var gd=oC.getContext('2d');
+		
+		
+		
+		setInterval(function(){
+			 var oDate=new Date();
+			 var oH=oDate.getHours();
+			 var oM=oDate.getMinutes();
+			 var oS=oDate.getSeconds();
+			 var oMs=oDate.getMilliseconds();
+			
+			 gd.clearRect(0,0,oC.width,oC.height);
+			 
+			 
+			 gd.font='30px 黑体';
+			 gd.lineWidth=1;
+			 gd.textAlign='center';
+			 gd.strokeText('圆弧时钟',300,160);
+			 
+			 gd.font='14px a';
+			 gd.textBaseline='middle';
+			 gd.textAlign='center';
+			 gd.fillText(oH+':'+oM+':'+oS,300,300);
+			 
+			 
+			 
+			 drawArc(100,0,oH%12*30+oM/60*30,'blue');
+			 drawArc(80,0,oM*6+oS/60*6,'yellow');
+			 drawArc(60,0,oS*6+oMs/1000*6);
+			//console.log(oH%12*30);
+		},16);
+		
+		
+		
+		function drawArc(r,start,end,col){
+			start-=90;
+			end-=90;
+			gd.beginPath();
+			gd.strokeStyle=col||'red';
+			gd.lineWidth=10;
+			gd.arc(300,300,r,d2a(start),d2a(end),false);
+			
+			gd.stroke();	
+		}
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas id="oc" width="800" height="600">
+			版本看不了，请升级您的浏览器！
+	</canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

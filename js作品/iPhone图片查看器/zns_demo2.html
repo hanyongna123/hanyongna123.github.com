@@ -1,0 +1,70 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iPhone手机图片查看器 </title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="tween.js"></script>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('wrap');
+		var oUl=oBox.getElementsByTagName('ul')[0];
+		var aLi=oUl.children;
+		var iNow=0;
+
+		oUl.onmousedown=function(ev){
+			var oEvent=ev||event;
+			var disX=oEvent.clientX-oUl.offsetLeft;
+			var downX=oEvent.clientX;
+			document.onmousemove=function(ev){
+				var oEvent=ev||event;
+				var l=oEvent.clientX-disX;
+
+				oUl.style.left=l+'px';
+			};
+			document.onmouseup=function(ev){
+				var oEvent=ev||event;
+				var upX=oEvent.clientX;
+
+				document.onmousemove=null;
+				document.onmouseup=null;
+
+				if(Math.abs(upX-downX)>30){
+					if(upX<downX){
+						iNow++;
+						if(iNow>aLi.length-1)iNow=aLi.length-1;
+						console.log(iNow);
+					}else{
+						iNow--;
+						if(iNow<0)iNow=0;
+						console.log(iNow);
+					}
+					tween(oUl,{left:-aLi[0].offsetWidth*iNow});
+				}else{
+					tween(oUl,{left:-aLi[0].offsetWidth*iNow});
+				}
+
+			};
+			return false;
+		}
+
+	}
+</script>
+</head>
+
+<body>
+
+<div id="iphone">
+	<div id="wrap">
+		<ul>
+			<li style="background:url(images/pic1.png);"></li>
+			<li style="background:url(images/pic2.png);"></li>
+			<li style="background:url(images/pic3.png);"></li>
+			<li style="background:url(images/pic4.png);"></li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

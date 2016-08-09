@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+/*************************top***************************/
+/*.top{ height:36px; line-height:36px;width:100%; min-width:930px; border-bottom:1px solid #dfdfdf;background:#fafafa;}
+.top .top-nav-con{height:36px;}
+.top .top-nav-con li{ float:left; background:url(../img/top_bg.png) no-repeat right center;  height:36px;padding-right:18px;  margin-right:13px;}
+.top .top-nav-con li.last{ background:none;}
+.top .top-nav-con li a{ color:#8c8c8c;}
+.top .login{}
+.login ul{ background:url(../img/top_bg.png) no-repeat 68px  center;}
+.login ul li{ float:left; margin-left:30px;}
+.login ul li a{ color:#9d9d9d;}*/
+.top{ height:36px; line-height:36px; width:100%; min-width:930px; border-bottom:1px solid #dfdfdf; background:#fafafa; font-size:12px;}
+.topbar-nav li{ float:left; background:url(../image/top_list_bg.png) no-repeat right center; padding-right:18px; margin-right:13px; height:36px;}
+.topbar-nav li.last{ background:none;}
+.topbar-nav li a{ color:#9d9d9d;}
+.login{}
+.login ul{ background:url(../image/top_list_bg.png) no-repeat 68px  center;}
+.login ul li{ float:left; margin-left:30px;}
+.login ul li a{ color:#9d9d9d;}
+
+/*************************header***************************/
+.header{ position:relative;}
+.header .logo{ width:70px; height:70px; background:url(../img/logo.png) no-repeat; text-indent:-9999px; margin-top:25px;}
+.search,.search img{ width:424px; height:40px;}
+.search,.header .shop{ margin-top:55px;}
+.header .shop{ width:126px; height:40px; background:#ffdb3d; margin-left:10px; text-align:center; line-height:40px;}
+.header .shop a{ font-size:14px; color:#333; background:url(../img/shop_bg.png) no-repeat left center; padding-left:17px;}
+.time{ font-size:12px; color:#8c8c8c; background:url(../img/clock_bg.png) no-repeat left center; position:absolute; padding-left:22px; height:16px; line-height:16px; top:23px; right:0px;}
+/*.header{ position:relative;}
+.header .logo{ background:url(../img/logo.png); width:70px; height:70px; text-indent:-999px; margin-top:25px;}
+.search,.search img{ width:424px; height:40px;}
+.search,.header .shop{ margin-top:55px;}
+.header .shop{ width:126px; height:40px; background:#ffdb57;margin-left:10px; text-align:center; line-height:40px;}
+.header .shop a{ background:url(../img/shop_bg.png) no-repeat left center; padding-left:17px;font-size:14px; color:#333;}
+.header .time{ background:url(../img/clock_bg.png) no-repeat left center; position:absolute;top:23px;right:0px;padding-left:22px;}*/
+/*************************导航***************************/
+.home{ height:642px;  }
+.home .site-category-list{width:248px; height:642px; }
+.site-category-list .all-goods{ width:228px; height:34px; background:#ff4a00; font-size:16px; color:#fff; padding-top:16px; padding-left:20px;}
+.home .site-category-list ul{ border:#dfdfdf 1px solid; border-top:none}
+.home .site-category-list ul li{ height:53px; width:226px; font-size:14px; padding:20px 0 0 20px; border-bottom:1px solid #dfdfdf;}
+.home .site-category-list ul li .goods-title{ color:#ff4a00; height:14px;}
+.home .site-category-list ul li .goods-con{ color:#6d6d6d; height:14px;padding-top:8px; display:inline-block;}
+.home-hero{ width:682px; height:642px; }
+.home-hero .nav{ width:682px; height:50px; background:#404144;}
+.home-hero .nav li{ float:left; font-size:16px; line-height:50px; margin:0 11px;}
+.home-hero .nav li a{ color:#fff;}
+.banner, .banner img{ width:682px; height:420px;}
+.banner{ position:relative;}
+.banner ul{ position:absolute; right:5px; bottom:15px;}
+.banner ul li{ width:28px; height:18px; border:1px solid #fff;  float:left; position:relative; color:#fff; margin-right:10px; cursor:pointer;}
+.banner ul li b{ width:28px; height:18px; position:absolute; left:0px; top:0px; z-index:99; text-align:center; line-height:18px; font-size:12px;}
+.banner ul li em{ width:28px; height:18px; background:#000;opacity:0.3; filter:alpha(opacity=30); position:absolute; left:0px; top:0;}
+.banner-b-img{ border-left:1px solid #f3f3f3;}
+.banner-b-img li{ float:left; border:1px solid #dfdfdf; border-left:none;}
+/*************************danpin***************************/
+.danpin .danpin-con .danpin-con1{ font-size:16px; color:#333333; font-weight:bold; padding-top:26px;}
+.danpin .danpin-con .danpin-con2{ font-size:14px; color:#6d6d6d; padding-top:29px; margin-left:12px;}
+.danpin .danpin-sanjiao{ margin-top:30px;}
+.danpin .danpin-sanjiao .sj-left{ width:28px; height:18px; border:red 1px solid;}
+.danpin .danpin-sanjiao .sj-right{ width:28px; height:18px; border:red 1px solid; border-left:none;}
+

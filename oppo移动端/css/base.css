@@ -1,0 +1,11 @@
+body{background: #f2f2f2;}
+*{ margin:0; padding:0;}
+a{ text-decoration:none;}
+.clearfix:after{content:""; display:block; clear:both;}
+.clearfix{zoom:1;}
+li{ list-style:none;}
+.w{ width:1180px; margin: 0 auto;}
+.fl{float: left;}
+.fr{ float: right; }
+input{outline: none;}
+img{vertical-align: top;}

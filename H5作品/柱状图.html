@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ background:#000; margin:0;}
+.c{background:#FFF; margin:0 auto; display:block;}
+</style>
+<script>
+	window.onload=function(){
+		var oC=document.querySelector('.c');
+		var gd=oC.getContext('2d');
+		
+		var arr=[230,60,80,200,45];
+		
+		
+		var nMax=Math.max.apply(null,arr);
+		//alert(nMax);
+		
+		var aH=[];
+		for(var i=0; i<arr.length;i++){
+			aH[i]=arr[i]/nMax*oC.offsetHeight;
+		}
+		
+		
+		var w=oC.width/(arr.length*3-2);
+		var space=w*2;
+		for(var i=0; i<aH.length;i++){
+			gd.fillStyle='red';
+			gd.fillRect(w*i+space*i,oC.height-aH[i],w,aH[i]);
+		}
+		
+		
+				
+	};
+</script>
+</head>
+
+<body>
+	<canvas class="c" width="600" height="400">
+    	抱歉，您的浏览器不支持canvas
+    </canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	html,body{ height:100%; width:100%; overflow:hidden; background:#000;}
+	canvas{ background:#fff;}
+</style>
+<script>
+
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);	
+	}
+
+
+	function d2a(n){
+		return n*Math.PI/180;	
+	}
+	
+	window.onload=function(){
+		var oC=document.querySelector('#oc');
+		
+		var gd=oC.getContext('2d');
+		
+		var oImg=new Image();
+		
+		var i=0;
+		var y=0;
+		oImg.onload=function(){
+			gd.drawImage(oImg,0,0,40,56,0,0,40*2,56*2);	
+			var timer=setInterval(function(){
+				i++;
+				y+=4;
+				i%=4;
+				
+				gd.clearRect(0,0,oC.width,oC.height);
+				gd.drawImage(oImg,i*40,0,40,56,0,y,40*2,56*2);
+				
+				
+			},100);
+			
+		};
+		
+		oImg.src='img/20110222_14.png';
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas id="oc" width="800" height="600">
+		版本看不了，请升级您的浏览器！
+	</canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
